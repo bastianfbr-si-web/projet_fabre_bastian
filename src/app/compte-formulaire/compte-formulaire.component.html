@@ -1,1 +1,76 @@
-    <p class="text-center text-gray-800 text-lg">Compte-formulaire works!</p>
+<section class="container mx-auto mt-5 p-2">
+    <form id="client-form" action="/submit-form" method="post" onsubmit="return validateForm();">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <div class="form-control">
+                <label class="label" for="nom">
+                    <span class="label-text">Nom:</span>
+                </label>
+                <input type="text" id="nom" name="nom" class="input input-bordered" required>
+            </div>
+            <div class="form-control">
+                <label class="label" for="prenom">
+                    <span class="label-text">Prénom:</span>
+                </label>
+                <input type="text" id="prenom" name="prenom" class="input input-bordered" required>
+            </div>
+            <div class="form-control col-span-2">
+                <label class="label" for="adresse">
+                    <span class="label-text">Adresse:</span>
+                </label>
+                <input type="text" id="adresse" name="adresse" class="input input-bordered" required>
+            </div>
+            <div class="form-control">
+                <label class="label" for="cp">
+                    <span class="label-text">Code Postal:</span>
+                </label>
+                <input type="text" id="cp" name="cp" class="input input-bordered" required pattern="\d{5}">
+            </div>
+            <div class="form-control">
+                <label class="label" for="ville">
+                    <span class="label-text">Ville:</span>
+                </label>
+                <input type="text" id="ville" name="ville" class="input input-bordered" required>
+            </div>
+            <div class="form-control col-span-2">
+                <label class="label" for="tel">
+                    <span class="label-text">Téléphone:</span>
+                </label>
+                <input type="tel" id="tel" name="tel" class="input input-bordered" required>
+            </div>
+            <div class="form-control col-span-2">
+                <label class="label" for="email">
+                    <span class="label-text">Email:</span>
+                </label>
+                <input type="email" id="email" name="email" class="input input-bordered" required>
+            </div>
+            <div class="form-control col-span-2">
+                <label class="label" for="civilite">
+                    <span class="label-text">Civilité:</span>
+                </label>
+                <select id="civilite" name="civilite" class="select select-bordered" required>
+                    <option value="M">Monsieur</option>
+                    <option value="Mme">Madame</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label class="label" for="login">
+                    <span class="label-text">Identifiant:</span>
+                </label>
+                <input type="text" id="login" name="login" class="input input-bordered" required>
+            </div>
+            <div class="form-control">
+                <label class="label" for="password">
+                    <span class="label-text">Mot de passe:</span>
+                </label>
+                <input type="password" id="password" name="password" class="input input-bordered" required minlength="8">
+            </div>
+            <div class="form-control">
+                <label class="label" for="confirm-password">
+                    <span class="label-text">Confirmez le mot de passe:</span>
+                </label>
+                <input type="password" id="confirm-password" name="confirm-password" class="input input-bordered" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Inscrire</button>
+    </form>
+</section>
