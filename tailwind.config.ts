@@ -4,6 +4,9 @@ export default {
   content: [
     './src/**/*.{html,ts}',
   ],
+  daisyui: {
+    themes: ["light"],
+  },
   theme: {
     extend: {},
   },
