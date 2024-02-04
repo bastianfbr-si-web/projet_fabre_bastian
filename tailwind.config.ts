@@ -8,7 +8,11 @@ export default {
     themes: ["light"],
   },
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "primary": "#D1392A",
+      },
+    },
   },
   plugins: [require("daisyui")],
 } satisfies Config
