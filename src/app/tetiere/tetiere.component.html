@@ -1,12 +1,23 @@
 <div class="navbar bg-base-100">
-  <div class="navbar-start lg:w-auto">
+  <div class="navbar-start lg:w-auto ml-14">
     <img src="/assets/hopla.png" alt="logo" class="w-26 h-20 p-1" />
   </div>
   <div class="navbar-center hidden lg:flex flex-1 justify-center">
-      <input type="text" placeholder="Rechercher un smartphone..." class="input input-bordered w-full max-w-screen-sm mx-auto rounded-full" />
+    <div class="relative w-full max-w-screen-sm mx-auto">
+      <input type="text" placeholder="Rechercher un smartphone..." class="input w-full rounded-full text-secondary placeholder-secondary bg-accent pl-4 pr-10 font-medium font-inter" />
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-secondary">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
   </div>
-  <div class="navbar-end gap-2 lg:w-auto">
-    <a class="btn bg-primary text-white">Mon compte</a>
-    <a class="btn bg-primary text-white">Panier</a>
+  <div class="navbar-end gap-4 lg:w-auto mr-20">
+    <a class="btn bg-primary text-white rounded-full font-inter">Mon compte</a>
+    <a class="btn bg-secondary text-white btn-circle">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+      </svg>
+    </a>
   </div>
 </div>
