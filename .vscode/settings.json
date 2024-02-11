@@ -3,6 +3,7 @@
         "tetiere",
         "global_styles",
         "app",
-        "tailwind"
+        "tailwind",
+        "compte_formulaire"
     ]
 }
