@@ -1,0 +1,7 @@
+{
+    "conventionalCommits.scopes": [
+        "tetiere",
+        "global_styles",
+        "app"
+    ]
+}
