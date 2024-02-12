@@ -1,1 +1,6 @@
-<p>recapitulatif works!</p>
+<div *ngIf="formData">
+    <p>Bonjour {{formData.prenom}} {{formData.nom}},</p>
+    <p>Vous habitez bien en {{formData.pays}},</p>
+    <p>au {{formData.adresse}} à {{formData.ville}} {{formData.code_postal}}.</p>
+    <p>Contact : {{formData.telephone}} {{formData.email}}</p>
+</div>

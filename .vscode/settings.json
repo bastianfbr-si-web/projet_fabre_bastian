@@ -5,6 +5,7 @@
         "app",
         "tailwind",
         "compte_formulaire",
-        "formulaire"
+        "formulaire",
+        "recapitulatif"
     ]
 }
