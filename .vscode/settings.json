@@ -6,6 +6,7 @@
         "tailwind",
         "compte_formulaire",
         "formulaire",
-        "recapitulatif"
+        "recapitulatif",
+        "inscriptionForm"
     ]
 }
