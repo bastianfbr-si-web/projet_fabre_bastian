@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormulaireService } from '../services/formulaire.service';
-import { InscriptionForm } from '../interfaces/inscriptionForm';
+import { FormulaireService } from '../../services/formulaire.service';
+import { InscriptionForm } from '../../interfaces/inscriptionForm';
 import { CommonModule } from '@angular/common';
 
 @Component({
