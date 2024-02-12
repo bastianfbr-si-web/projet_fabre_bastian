@@ -82,5 +82,5 @@
       </div>
     </div>
   </div>
-  <button type="submit" class="bg-tertiary text-white mt-2 px-4 py-2 rounded">Inscrire</button>
+  <button type="submit" [ngClass]="{'class-active': inscriptionForm.valid, 'hidden': !inscriptionForm.valid}" [disabled]="!inscriptionForm.valid" class="bg-tertiary text-white mt-2 px-4 py-2 rounded">Inscrire</button>
 </form>
