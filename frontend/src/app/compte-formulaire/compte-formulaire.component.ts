@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormulaireService } from '../services/formulaire.service';
 
 @Component({
   selector: 'app-compte-formulaire',
@@ -12,7 +13,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class CompteFormulaireComponent implements OnInit {
   inscriptionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private formulaireService: FormulaireService) {
     this.inscriptionForm = this.fb.group({
       civilite: ['', Validators.required],
       nom: ['', Validators.required],
@@ -34,7 +35,8 @@ export class CompteFormulaireComponent implements OnInit {
 
   onSubmit() {
     if (this.inscriptionForm.valid) {
-      console.log('Formulaire valide');
+      this.formulaireService.updateFormData(this.inscriptionForm.value);
+      console.log('Formulaire valide, données envoyées');
     }
   }
 }

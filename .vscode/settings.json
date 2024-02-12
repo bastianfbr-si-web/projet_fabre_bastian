@@ -4,6 +4,7 @@
         "global_styles",
         "app",
         "tailwind",
-        "compte_formulaire"
+        "compte_formulaire",
+        "formulaire"
     ]
 }
