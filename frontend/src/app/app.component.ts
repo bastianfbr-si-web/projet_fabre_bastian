@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 /* Components */
-import { CompteFormulaireComponent } from './components/compte-formulaire/compte-formulaire.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { RecapitulatifComponent } from './components/recapitulatif/recapitulatif.component';
-import { TetiereComponent } from './components/tetiere/tetiere.component';
+import { CompteFormulaireComponent } from './pages/inscription/components/compte-formulaire/compte-formulaire.component';
+import { FooterComponent } from './common/footer/footer.component';
+import { RecapitulatifComponent } from './pages/inscription/components/recapitulatif/recapitulatif.component';
+import { TetiereComponent } from './common/tetiere/tetiere.component';
 
 @Component({
   selector: 'app-root',

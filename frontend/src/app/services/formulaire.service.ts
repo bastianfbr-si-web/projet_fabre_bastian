@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { InscriptionForm } from '../interfaces/inscriptionForm';
+import { InscriptionForm } from '../pages/inscription/models/inscriptionForm';
 
 @Injectable({
   providedIn: 'root'

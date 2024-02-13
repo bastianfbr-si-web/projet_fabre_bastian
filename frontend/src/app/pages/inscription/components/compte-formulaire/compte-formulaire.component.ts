@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FormulaireService } from '../../services/formulaire.service';
+import { FormulaireService } from '../../../../services/formulaire.service';
 
 @Component({
   selector: 'app-compte-formulaire',
