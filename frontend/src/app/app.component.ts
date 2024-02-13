@@ -15,5 +15,5 @@ import { HeaderComponent } from './common/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'tp_2';
+  title = 'Hopla';
 }
