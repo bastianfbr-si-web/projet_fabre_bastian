@@ -1,6 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "tetiere",
+        "header",
         "global_styles",
         "app",
         "tailwind",

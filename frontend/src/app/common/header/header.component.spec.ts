@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TetiereComponent } from './tetiere.component';
+import { HeaderComponent } from './header.component';
 
 describe('TetiereComponent', () => {
-  let component: TetiereComponent;
-  let fixture: ComponentFixture<TetiereComponent>;
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TetiereComponent]
+      imports: [HeaderComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(TetiereComponent);
+
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
