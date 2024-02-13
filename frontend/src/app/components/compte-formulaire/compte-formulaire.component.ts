@@ -15,7 +15,7 @@ export class CompteFormulaireComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private formulaireService: FormulaireService) {
     this.inscriptionForm = this.fb.group({
-      civilite: ['', Validators.required],
+      civilite: ['M', Validators.required],
       nom: ['', Validators.required],
       prenom: ['', Validators.required],
       adresse: ['', Validators.required],
