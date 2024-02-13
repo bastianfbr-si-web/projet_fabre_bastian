@@ -1,6 +1,6 @@
-<div *ngIf="formData">
+<div *ngIf="formData && isValid()" class="bg-accent rounded-lg shadow-lg p-4">
     <p>Bonjour {{formData.prenom}} {{formData.nom}},</p>
     <p>Vous habitez bien en {{formData.pays}},</p>
     <p>au {{formData.adresse}} à {{formData.ville}} {{formData.code_postal}}.</p>
-    <p>Contact : {{formData.telephone}} {{formData.email}}</p>
+    <p class="py-4">Contact : {{formData.telephone}} {{formData.email}}</p>
 </div>

@@ -20,4 +20,19 @@ export class RecapitulatifComponent implements OnInit {
       this.formData = data;
     });
   }
+
+  isValid(): boolean {
+    return this.formData.adresse !== '' &&
+    this.formData.civilite !== '' &&
+    this.formData.code_postal !== '' &&
+    this.formData.email !== '' &&
+    this.formData.login !== '' &&
+    this.formData.motdepasse !== '' &&
+    this.formData.mdp_conf !== '' &&
+    this.formData.nom !== '' &&
+    this.formData.pays !== '' &&
+    this.formData.prenom !== '' &&
+    this.formData.telephone !== '' &&
+    this.formData.ville !== '';
+  }
 }
