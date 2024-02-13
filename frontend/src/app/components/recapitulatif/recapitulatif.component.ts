@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./recapitulatif.component.css']
 })
 export class RecapitulatifComponent implements OnInit {
-  formData: InscriptionForm = new InscriptionForm('','','','','','','','','','','','')
+  formData: InscriptionForm = new InscriptionForm('','','','','','','','','','','','', false)
 
   constructor(private formulaireService: FormulaireService) { }
 
@@ -22,17 +22,6 @@ export class RecapitulatifComponent implements OnInit {
   }
 
   isValid(): boolean {
-    return this.formData.adresse !== '' &&
-    this.formData.civilite !== '' &&
-    this.formData.code_postal !== '' &&
-    this.formData.email !== '' &&
-    this.formData.login !== '' &&
-    this.formData.motdepasse !== '' &&
-    this.formData.mdp_conf !== '' &&
-    this.formData.nom !== '' &&
-    this.formData.pays !== '' &&
-    this.formData.prenom !== '' &&
-    this.formData.telephone !== '' &&
-    this.formData.ville !== '';
+    return this.formData.valid;
   }
 }

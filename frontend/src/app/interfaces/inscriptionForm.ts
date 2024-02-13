@@ -11,6 +11,7 @@ export class InscriptionForm {
     public login: string,
     public email: string,
     public motdepasse: string,
-    public mdp_conf: string
+    public mdp_conf: string,
+    public valid: boolean
   ) {  }
 }

@@ -26,7 +26,8 @@ export class CompteFormulaireComponent implements OnInit {
       login: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       motdepasse: ['', Validators.required],
-      mdp_conf: ['', Validators.required]
+      mdp_conf: ['', Validators.required],
+      valid: [false]
     });
   }
 
@@ -35,6 +36,7 @@ export class CompteFormulaireComponent implements OnInit {
 
   onSubmit() {
     if (this.inscriptionForm.valid) {
+      this.inscriptionForm.patchValue({ valid: true });
       this.formulaireService.updateFormData(this.inscriptionForm.value);
       console.log('Formulaire valide, données envoyées');
     }
