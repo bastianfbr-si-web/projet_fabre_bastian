@@ -1,14 +1,14 @@
 {
     "conventionalCommits.scopes": [
-        "header",
-        "global_styles",
         "app",
-        "tailwind",
         "compte_formulaire",
+        "footer",
         "formulaire",
-        "recapitulatif",
-        "inscriptionForm",
+        "global_styles",
+        "header",
         "home",
-        "footer"
+        "inscriptionForm",
+        "recapitulatif",
+        "tailwind"
     ]
 }
