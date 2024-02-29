@@ -1,72 +1,66 @@
+[
   {
     "id": 1,
     "nom": "Google Pixel Fold",
-    "prix": 1799,
+    "prix": 1899,
     "marque": "Google",
-    "couleur": "Argent",
-    "description": "Un téléphone pliable avec un grand écran principal et un écran de couverture plus petit. Propulsé par la puce Google Tensor 2 et doté d'un système de caméra arrière à trois objectifs.",
-    "image": "https://www.gsmarena.com/images/phone.php?id=12265&thumb=2"
+    "description": "Un téléphone pliable avec un grand écran principal et un écran de couverture plus petit. Propulsé par la puce Google Tensor G2 et doté d'un système de caméra arrière à trois objectifs.",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-fold.jpg"
   },
   {
     "id": 2,
     "nom": "Google Pixel 8 Pro",
-    "prix": 899,
+    "prix": 1099,
     "marque": "Google",
-    "couleur": "Noir",
-    "description": "Le téléphone phare de Google, doté d'un système d'appareil photo puissant et d'un design élégant. Propulsé par la puce Google Tensor 2.",
-    "image": "https://www.gsmarena.com/images/phone.php?id=12545&thumb=2"
+    "description": "Le téléphone phare de Google, doté d'un système d'appareil photo puissant et d'un design élégant. Propulsé par la puce Google Tensor G3.",
+    "image": "/assets/pixel.jpg"
   },
   {
     "id": 3,
     "nom": "Google Pixel 8",
-    "prix": 599,
+    "prix": 799,
     "marque": "Google",
-    "couleur": "Blanc",
     "description": "Un téléphone milieu de gamme de Google avec un bon système d'appareil photo et une batterie longue durée.",
-    "image": "https://www.dpreview.com/files/p/2465285488/google-pixel-8-and-8-pro-01.jpg"
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-8.jpg"
   },
   {
     "id": 4,
     "nom": "Samsung Galaxy S24 Ultra",
-    "prix": 1499,
+    "prix": 1469,
     "marque": "Samsung",
-    "couleur": "Bourgogne",
     "description": "Le téléphone haut de gamme de Samsung, doté d'un système d'appareil photo puissant, d'un grand écran et d'un stylet S Pen intégré.",
-    "image": "https://www.gsmarena.com/images/phone.php?id=12771&thumb=2"
+    "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s24-ultra-5g-sm-s928-0.jpg"
   },
   {
     "id": 5,
     "nom": "Samsung Galaxy Z Fold 5",
-    "prix": 1999,
+    "prix": 1899,
     "marque": "Samsung",
-    "couleur": "Vert",
     "description": "Un téléphone pliable de Samsung avec un grand écran principal et un écran de couverture plus petit.",
-    "image": "https://www.cnet.com/wp-content/uploads/2024/03/Samsung-Galaxy-Z-Fold-5-02.jpg"
+    "image": "https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-z-fold5-5g-r3.jpg"
   },
   {
     "id": 6,
     "nom": "Honor Magic 6 Pro",
-    "prix": 849,
+    "prix": 1299,
     "marque": "Honor",
-    "couleur": "Gris spatial",
     "description": "Un téléphone phare de Honor avec un système d'appareil photo puissant et un design élégant.",
-    "image": "https://www.91mobiles.com/wp-content/uploads/2023/05/Honor-Magic-6-Pro-1.jpg"
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/honor-magic6-pro.jpg"
   },
   {
     "id": 7,
     "nom": "Honor Magic V2",
-    "prix": 1399,
+    "prix": 1999,
     "marque": "Honor",
-    "couleur": "Orange",
     "description": "Un téléphone pliable de Honor avec un grand écran principal et un écran de couverture plus petit.",
-    "image": "https://www.gsmarena.com/images/phone.php?id=12383&thumb=2"
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/honor-magic-2.jpg"
   },
   {
     "id": 8,
     "nom": "Xiaomi 14",
-    "prix": 799,
+    "prix": 999,
     "marque": "Xiaomi",
-    "couleur": "Bleu",
     "description": "Un téléphone phare de Xiaomi avec un processeur puissant et un bon système d'appareil photo.",
-    "image": "https://www.gsmarena.com/images/phone.php?id=12626&thumb=2"
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-new.jpg"
   }
+]
