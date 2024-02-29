@@ -12,6 +12,10 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
     public getSmartphones () : Observable<Smartphone[]> {
-        return this.http.get<Smartphone[]>(environment.backendClient);
+        return this.http.get<Smartphone[]>(`${environment.backendClient}/smartphones.json`);
+    }
+
+    public getMarques () : Observable<string[]> {
+        return this.http.get<string[]>(`${environment.backendClient}/marques.json`);
     }
 }
