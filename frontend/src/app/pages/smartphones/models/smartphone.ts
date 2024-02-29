@@ -1,11 +1,16 @@
 export class Smartphone {
-  constructor(
-    public id: number,
-    public name: string,
-    public price: number,
-    public brand: string,
-    public color: string,
-    public description: string,
-    public image: string
-  ) {}
+  id: number;
+  nom: string;
+  prix: number;
+  marque: string;
+  description: string;
+  image: string;
+  constructor(id: number, nom: string, prix: number, marque: string, description: string, image: string) {
+    this.id = id;
+    this.nom = nom;
+    this.prix = prix;
+    this.marque = marque;
+    this.description = description;
+    this.image = image;
+  }
 }
