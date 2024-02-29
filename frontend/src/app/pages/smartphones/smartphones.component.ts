@@ -1,13 +1,25 @@
 import { Component } from '@angular/core';
-import { SmartphoneComponent } from './components/smartphone/smartphone.component';
+import { ApiService } from '../../services/api.service';
+import { Smartphone } from './models/smartphone';
+import { Observable } from 'rxjs';
+import { SmartphoneComponent } from "./components/smartphone/smartphone.component";
+import { HttpClientModule } from '@angular/common/http';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-smartphones',
-  standalone: true,
-  imports: [SmartphoneComponent],
-  templateUrl: './smartphones.component.html',
-  styleUrl: './smartphones.component.css'
+    providers: [ApiService],
+    selector: 'app-smartphones',
+    standalone: true,
+    templateUrl: './smartphones.component.html',
+    styleUrl: './smartphones.component.css',
+    imports: [AsyncPipe, CommonModule, HttpClientModule, SmartphoneComponent]
 })
-export class SmartphonesComponent {
+export class SmartphonesComponent{
 
+  smartphone$ : Observable<Smartphone[]>
+
+  constructor(private apiService : ApiService) {
+    this.smartphone$ = this.apiService.getSmartphones();
+    console.log(this.smartphone$);
+  }
 }
