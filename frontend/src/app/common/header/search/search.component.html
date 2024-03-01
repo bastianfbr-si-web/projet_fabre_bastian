@@ -12,52 +12,72 @@
     [ngClass]="{ 'dropdown-open': (searchInput | async)?.length }"
   >
     <ng-container *ngIf="{ results: (filteredSmartphones$ | async) } as data">
-      <div class="container flex flex-row">
-        <h4 class="text-sm font-medium mr-2">Filtres par marque</h4>
-        <div class="flex flex-row flex-wrap gap-2">
-          <div
-            *ngFor="let marque of marques | async; trackBy: trackByFn"
-            class="flex flex-row items-center"
-          >
-            <input
-              type="checkbox"
-              id="{{ marque }}"
-              class="form-checkbox h-5 w-5 text-primary"
-              [checked]="marque === marqueFilter.value"
-              (change)="
-                marqueFilter.next(marqueFilter.value === marque ? '' : marque)
-              "
-            />
-            <label for="{{ marque }}" class="text-primary ml-2 text-sm">{{
-              marque
-            }}</label>
+      <div class="container flex flex-col">
+        <div class="flex flex-row justify-between">
+          <h4 class="text-sm font-medium">Filtres par marque</h4>
+          <div class="flex flex-row flex-wrap gap-2">
+            <div
+              *ngFor="let marque of marques | async; trackBy: trackByFn"
+              class="flex flex-row items-center"
+            >
+              <input
+                type="checkbox"
+                id="{{ marque }}"
+                class="form-checkbox h-5 w-5 text-primary"
+                [checked]="marque === marqueFilter.value"
+                (change)="
+                  marqueFilter.next(marqueFilter.value === marque ? '' : marque)
+                "
+              />
+              <label for="{{ marque }}" class="text-primary ml-2 text-sm">{{
+                marque
+              }}</label>
+            </div>
+          </div>
+          <div class="flex flex-row justify-between">
+            <h4 class="text-sm font-medium">Filtres par prix</h4>
+            <div class="flex flex-row items-center gap-2">
+              <input
+                type="number"
+                placeholder="Min €"
+                class="input input-bordered w-1/2 max-w-xs"
+                [ngModel]="prixMin"
+                (ngModelChange)="prixMinChange($event)"
+              />
+              <input
+                type="number"
+                placeholder="Max €"
+                class="input input-bordered w-1/2 max-w-xs"
+                [ngModel]="prixMax"
+                (ngModelChange)="prixMaxChange($event)"
+              />
+            </div>
           </div>
         </div>
       </div>
-      <header>
+      <header class="mt-4">
         <h3 class="text-lg font-medium">Résultats</h3>
       </header>
-      @if ((searchInput | async) && data.results?.length) {
-        <div>
-          @for (smartphone of data.results; track smartphone.id) {
-            <div class="flex items-center p-2 hover:bg-gray-100">
-              <img
-                src="{{ smartphone.image }}"
-                alt="Smartphone"
-                class="w-12 h-12 object-cover mr-4 rounded-md"
-              />
-              <div class="flex-grow flex justify-between items-center">
-                <div>
-                  <span class="font-medium">{{ smartphone.nom }}</span>
-                </div>
-                <span class="bg-primary text-white p-1 rounded-lg"
-                  >{{ smartphone.prix }} €</span
-                >
-              </div>
+      <div *ngIf="data.results?.length">
+        <div
+          *ngFor="let smartphone of data.results"
+          class="flex items-center p-2 hover:bg-gray-100"
+        >
+          <img
+            [src]="smartphone.image"
+            alt="Smartphone"
+            class="w-12 h-12 object-cover mr-4 rounded-md"
+          />
+          <div class="flex-grow flex justify-between items-center">
+            <div>
+              <span class="font-medium">{{ smartphone.nom }}</span>
             </div>
-          }
+            <span class="bg-primary text-white p-1 rounded-lg"
+              >{{ smartphone.prix }} €</span
+            >
+          </div>
         </div>
-      }
+      </div>
     </ng-container>
   </div>
 
