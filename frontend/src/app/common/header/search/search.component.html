@@ -1,23 +1,61 @@
-<div class="relative w-full max-w-screen-sm mx-auto">
-  <input type="text" placeholder="Rechercher un smartphone..."
-         class="input w-full rounded-full text-secondary placeholder-secondary bg-accent pl-4 pr-10 font-medium font-inter"
-         [(ngModel)]="searchInput" (ngModelChange)="filterSmartphones()"/>
-  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-secondary">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2"/>
+<div class="relative w-full max-w-screen-sm mx-auto dropdown group">
+  <input
+    type="text"
+    placeholder="Rechercher un smartphone..."
+    class="input w-full rounded-full text-secondary placeholder-secondary bg-accent pl-4 pr-10 font-medium font-inter"
+    [ngModel]="searchInput | async"
+    (ngModelChange)="searchInput.next($event)"
+  />
+
+  <div
+    class="dropdown-content p-2 bg-white shadow-lg rounded-lg mt-1 absolute w-full z-10 box-border border border-secondary overflow-clip group-focus:dropdown-open"
+    [ngClass]="{ 'dropdown-open': (searchInput | async)?.length }"
+  >
+    <ng-container *ngIf="{ results: (filteredSmartphones$ | async) } as data">
+      <header>
+        <h3 class="text-lg font-medium">Résultats</h3>
+      </header>
+      @if ((searchInput | async) && data.results?.length) {
+        <div>
+          @for (smartphone of data.results; track smartphone.id) {
+            <div class="flex items-center p-2 hover:bg-gray-100">
+              <img
+                src="{{ smartphone.image }}"
+                alt="Smartphone"
+                class="w-12 h-12 object-cover mr-4 rounded-md"
+              />
+              <div class="flex-grow flex justify-between items-center">
+                <div>
+                  <span class="font-medium">{{ smartphone.nom }}</span>
+                </div>
+                <span class="bg-primary text-white p-1 rounded-lg"
+                  >{{ smartphone.prix }} €</span
+                >
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </ng-container>
+  </div>
+
+  <div
+    class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
+    aria-hidden="true"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      class="w-5 h-5 text-secondary"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        stroke-width="2"
+      />
     </svg>
   </div>
-  <ng-container *ngIf="{ results: (filteredSmartphones$ | async) } as data">
-    <div *ngIf="searchInput && data.results?.length" class="dropdown-content bg-white shadow-lg rounded-lg mt-1 absolute w-full z-10 box-border border-2 border-secondary">
-      <div *ngFor="let smartphone of data.results" class="flex items-center p-2 hover:bg-gray-100">
-        <img src="{{ smartphone.image }}" alt="Smartphone" class="w-12 h-12 object-cover mr-4 rounded-md">
-        <div class="flex-grow flex justify-between items-center">
-          <div>
-            <span class="font-medium">{{ smartphone.nom }}</span>
-          </div>
-          <span class="bg-primary text-white p-1 rounded-lg">{{ smartphone.prix }} €</span>
-        </div>
-      </div>
-    </div>
-  </ng-container>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
+import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from '../../../services/api.service';
 import { Smartphone } from '../../../pages/smartphones/models/smartphone';
@@ -15,28 +15,15 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./search.component.scss'],
   imports: [AsyncPipe, CommonModule, FormsModule, HttpClientModule]
 })
-export class SearchComponent {
-  smartphones$: Observable<Smartphone[]>;
+export class SearchComponent{
   filteredSmartphones$: Observable<Smartphone[]>;
-  searchInput: string = '';
+  searchInput = new BehaviorSubject<string>('');
 
   constructor(private apiService: ApiService) {
-    this.smartphones$ = this.apiService.getSmartphones();
-    this.filteredSmartphones$ = this.smartphones$;
-  }
-
-  onSearchChange(searchValue: string): void {
-    this.searchInput = searchValue;
-    this.filterSmartphones();
-  }
-
-  filterSmartphones(): void {
-    this.filteredSmartphones$ = this.smartphones$.pipe(
-      map(smartphones =>
-        smartphones.filter(smartphone =>
-          smartphone.nom.toLowerCase().includes(this.searchInput.toLowerCase())
-        )
-      )
+    this.filteredSmartphones$ = combineLatest([this.apiService.getSmartphones(), this.searchInput]).pipe(
+      map(([smartphones, searchInput]) => {
+        return smartphones.filter(smartphone => smartphone.nom.toLowerCase().includes(searchInput.toLowerCase()));
+      })
     );
   }
 }
