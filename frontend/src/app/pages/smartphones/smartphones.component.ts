@@ -16,7 +16,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 })
 export class SmartphonesComponent{
 
-  smartphone$ : Observable<Smartphone[]>
+  protected smartphone$ : Observable<Smartphone[]>
 
   constructor(private apiService : ApiService) {
     this.smartphone$ = this.apiService.getSmartphones();
