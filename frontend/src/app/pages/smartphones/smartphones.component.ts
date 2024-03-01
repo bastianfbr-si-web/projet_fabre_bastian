@@ -20,6 +20,5 @@ export class SmartphonesComponent{
 
   constructor(private apiService : ApiService) {
     this.smartphone$ = this.apiService.getSmartphones();
-    console.log(this.smartphone$);
   }
 }
