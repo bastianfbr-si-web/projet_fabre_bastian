@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src='./frontend/src/assets/hopla_bg.png' alt='Hopla - Reconditionneur de smartphones made in Alsace'>
+  <img src='./frontend/src/assets/hopla_bg.png' alt='Hopla - Reconditionneur de smartphones made in Alsace' width='300px'>
 </h1>
 <p align="center">
   📱 <strong>Bienvenue chez Hopla</strong>, le reconditionneur de smartphones made in Alsace ! 🌿
