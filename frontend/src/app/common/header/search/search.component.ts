@@ -20,9 +20,7 @@ export class SearchComponent {
   searchInput = new BehaviorSubject<string>('');
   marqueFilter = new BehaviorSubject<string>('');
 
-  // Supposons que `marques` soit une liste statique de marques pour l'exemple
-  // Dans une application réelle, cela pourrait également provenir d'un service
-  marques: string[] = ['Google', 'Honor', 'Samsung', 'Xiaomi'];
+  marques: Observable<string[]>;
 
   constructor(private apiService: ApiService) {
     this.filteredSmartphones$ = combineLatest([this.apiService.getSmartphones(), this.searchInput, this.marqueFilter]).pipe(
@@ -33,10 +31,10 @@ export class SearchComponent {
         );
       })
     );
+    this.marques = this.apiService.getMarques();
   }
 
   trackByFn(index: number, item: string): string {
   return item;
 }
-
 }
