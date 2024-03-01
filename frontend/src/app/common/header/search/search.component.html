@@ -12,6 +12,28 @@
     [ngClass]="{ 'dropdown-open': (searchInput | async)?.length }"
   >
     <ng-container *ngIf="{ results: (filteredSmartphones$ | async) } as data">
+      <div class="container flex flex-row">
+        <h4 class="text-sm font-medium mr-2">Filtres par marque</h4>
+        <div class="flex flex-row flex-wrap gap-2">
+          <div
+            *ngFor="let marque of marques; trackBy: trackByFn"
+            class="flex flex-row items-center"
+          >
+            <input
+              type="checkbox"
+              id="{{ marque }}"
+              class="form-checkbox h-5 w-5 text-primary"
+              [checked]="marque === marqueFilter.value"
+              (change)="
+                marqueFilter.next(marqueFilter.value === marque ? '' : marque)
+              "
+            />
+            <label for="{{ marque }}" class="text-primary ml-2 text-sm">{{
+              marque
+            }}</label>
+          </div>
+        </div>
+      </div>
       <header>
         <h3 class="text-lg font-medium">Résultats</h3>
       </header>
