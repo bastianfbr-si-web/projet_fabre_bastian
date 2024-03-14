@@ -27,4 +27,8 @@ export class ListeCartesComponent implements OnInit {
     this.cartesService.deleteCarte(id);
     this.getCartes();
   }
+
+  editCarte(id: number): void {
+    alert('Pourquoi éditer une carte bancaire ? \nSupprimez-la et créez-en une nouvelle !');
+  }
 }
