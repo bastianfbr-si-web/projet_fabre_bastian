@@ -16,6 +16,8 @@
         "api",
         "search",
         "marques",
-        "cartes_module"
+        "cartes_module",
+        "formulaire_carte",
+        "liste_carte"
     ]
 }
