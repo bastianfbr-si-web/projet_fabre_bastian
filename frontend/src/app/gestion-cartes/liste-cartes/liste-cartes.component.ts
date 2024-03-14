@@ -23,5 +23,8 @@ export class ListeCartesComponent implements OnInit {
     });
   }
 
-  // Ajoutez d'autres méthodes selon vos besoins, par exemple pour gérer la suppression ou l'édition des cartes
+  deleteCarte(id: number): void {
+    this.cartesService.deleteCarte(id);
+    this.getCartes();
+  }
 }

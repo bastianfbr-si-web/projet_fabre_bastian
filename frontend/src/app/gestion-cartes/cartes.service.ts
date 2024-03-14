@@ -19,4 +19,8 @@ export class CartesService {
   addCarte(carte: Carte): void {
     this.cartes.push(carte);
   }
+
+  deleteCarte(id: number): void {
+    this.cartes = this.cartes.filter(carte => carte.id !== id);
+  }
 }
