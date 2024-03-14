@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormulaireCarteComponent } from './formulaire-carte/formulaire-carte.component';
 import { ListeCartesComponent } from './liste-cartes/liste-cartes.component';
+import { CaviarcartePipe } from './liste-cartes/caviarcarte.pipe';
 
 @NgModule({
-  declarations: [FormulaireCarteComponent, ListeCartesComponent],
+  declarations: [CaviarcartePipe, FormulaireCarteComponent, ListeCartesComponent],
   imports: [
     CommonModule, ReactiveFormsModule,
   ],
