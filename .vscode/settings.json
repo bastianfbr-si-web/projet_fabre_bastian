@@ -20,6 +20,7 @@
         "formulaire_carte",
         "liste_carte",
         "cartes",
-        "frontend"
+        "frontend",
+        "store"
     ]
 }
