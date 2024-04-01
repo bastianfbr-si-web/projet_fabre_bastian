@@ -19,6 +19,7 @@
         "cartes_module",
         "formulaire_carte",
         "liste_carte",
-        "cartes"
+        "cartes",
+        "frontend"
     ]
 }
