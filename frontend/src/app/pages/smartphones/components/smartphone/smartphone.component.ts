@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { Smartphone } from '../../models/smartphone';
+import { AjouterSmartphone } from '../../../../store/actions/smartphone-action';
 
 @Component({
   selector: 'app-smartphone',
@@ -10,12 +12,12 @@ import { Smartphone } from '../../models/smartphone';
 })
 export class SmartphoneComponent {
 addToCart() {
-  throw new Error('Method not implemented.');
+  this.store.dispatch(new AjouterSmartphone(this.smartphone));
 }
   @Input()
   public declare smartphone: Smartphone;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
   }
