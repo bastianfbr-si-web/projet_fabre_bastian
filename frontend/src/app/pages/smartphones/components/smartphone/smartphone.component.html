@@ -7,11 +7,14 @@
       [alt]="smartphone.nom"
     />
     <h2 class="text-xl font-bold mt-4">{{ smartphone.nom }}</h2>
+    <span class="bg-primary text-white px-4 py-2 mt-4 rounded-lg">
+      {{ smartphone.prix }} €
+    </span>
     <button
       class="bg-primary text-white px-4 py-2 mt-4 rounded-lg"
       (click)="addToCart()"
     >
-      {{ smartphone.prix }} €
+      Ajouter au panier
     </button>
   </div>
 </div>
