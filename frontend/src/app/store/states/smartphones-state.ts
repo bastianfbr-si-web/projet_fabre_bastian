@@ -23,6 +23,11 @@ export class SmartphoneState {
     return state.smartphones;
   }
 
+  @Selector()
+  static getNbSmartphones(state: SmartphoneStateModel) {
+    return state.smartphones.length;
+  }
+
   @Action(AjouterSmartphone)
   ajouterSmartphone(
     { getState, patchState }: StateContext<SmartphoneStateModel>,
