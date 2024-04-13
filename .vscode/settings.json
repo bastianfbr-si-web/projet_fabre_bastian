@@ -23,6 +23,7 @@
         "frontend",
         "store",
         "smartphones-state",
-        "panier"
+        "panier",
+        "backend"
     ]
 }
