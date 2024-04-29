@@ -8,7 +8,12 @@ function generateToken(payload: object) {
 }
 
 function login(req: Request, res: Response) {
-    const { email, password } = req.body.user;
+    const { email, password } = req.body.user || {};
+
+    if (!email || !password) {
+        return res.status(400).json({ error: "Email and password are required" });
+    }
+
     const user = userService.getUserByEmail(email);
 
     if (!user) {
