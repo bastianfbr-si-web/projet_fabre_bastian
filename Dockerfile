@@ -28,21 +28,13 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Copy projects
 COPY --from=builder-frontend /app/dist/tp_2/browser/ /var/www/html
-COPY --from=builder-backend /app/build /app/backend
 
 # Set working directory
 WORKDIR /app/backend
-# Install dependencies
-RUN npm ci --production
 
 
 # Copy nginx configuration
 COPY docker/nginx.conf /etc/nginx/nginx.conf
-
-ENV NODE_ENV production
-ENV HOST 0.0.0.0
-ENV PORT 3333
-ENV LOG_LEVEL info
 
 EXPOSE 80
 
