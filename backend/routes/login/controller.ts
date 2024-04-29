@@ -11,16 +11,16 @@ function login(req: Request, res: Response) {
     const { email, password } = req.body.user || {};
 
     if (!email || !password) {
-        return res.status(400).json({ error: "Email and password are required" });
+        return res.status(400).json({ error: "Email et mot de passe sont requis" });
     }
 
     const user = userService.getUserByEmail(email);
 
     if (!user) {
-        return res.status(401).json({ error: "User not found" });
+        return res.status(401).json({ error: "Utilisateur non trouvé" });
     }
     if (!userService.login(email, password)) {
-        return res.status(401).json({ error: "Invalid password" });
+        return res.status(401).json({ error: "Mot de passe incorrect" });
     }
 
     const token = generateToken({ id: user.id, email: user.email });
