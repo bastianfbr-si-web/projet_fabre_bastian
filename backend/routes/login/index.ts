@@ -2,6 +2,6 @@ import express from "express";
 const router = express.Router();
 import authController from "./controller";
 
-router.post("/login", authController.login);
+router.post("/", authController.login);
 
 export default router;
