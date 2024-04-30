@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  backendClient : '/assets/mock',
+  backendClient : 'http://localhost:4000'
 };
