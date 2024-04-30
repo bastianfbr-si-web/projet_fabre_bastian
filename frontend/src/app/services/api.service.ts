@@ -16,6 +16,6 @@ export class ApiService {
     }
 
     public getMarques () : Observable<string[]> {
-        return this.http.get<string[]>(`${environment.backendClient}/marques`);
+        return this.http.get<string[]>(`${environment.backendClient}/smartphones/marques`);
     }
 }
