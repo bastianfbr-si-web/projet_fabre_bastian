@@ -3,8 +3,8 @@ import userService from "./services";
 import { Request, Response } from "express";
 
 function generateToken(payload: object) {
-    const secret: Secret = process.env.JWT_SECRET ?? "secret";
-    return jwt.sign(payload, secret, { expiresIn: "14d" });
+    const secretToken: Secret = process.env.TOKEN ?? "secret";
+    return jwt.sign(payload, secretToken, { expiresIn: "14d" });
 }
 
 function login(req: Request, res: Response) {
@@ -24,11 +24,10 @@ function login(req: Request, res: Response) {
     }
 
     const token = generateToken({ id: user.id, email: user.email });
-    const userData = userService.getUserByEmail(email);
 
     res.setHeader("Authorization", `Bearer ${token}`);
 
-    res.send({ user: userData});
+    res.send({ user: user});
 }
 
 export default { generateToken, login };
