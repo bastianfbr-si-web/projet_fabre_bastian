@@ -26,7 +26,7 @@
                 class="form-checkbox h-5 w-5 text-primary"
                 [checked]="marque === marqueFilter.value"
                 (change)="
-                  marqueFilter.next(marqueFilter.value === marque ? '' : marque)
+                  marqueChange(marque === marqueFilter.value ? '' : marque)
                 "
               />
               <label for="{{ marque }}" class="text-primary ml-2 text-sm">{{

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, debounceTime, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../../services/api.service';
 import { Smartphone } from '../../../pages/smartphones/models/smartphone';
 import { AsyncPipe, CommonModule } from '@angular/common';
@@ -25,32 +25,39 @@ export class SearchComponent {
   marques: Observable<string[]>;
 
   constructor(private apiService: ApiService) {
-    this.filteredSmartphones$ = combineLatest([
-      this.apiService.getSmartphones(),
-      this.searchInput,
-      this.marqueFilter,
-      this.prixMin,
-      this.prixMax
-    ]).pipe(
-      map(([smartphones, searchInput, marqueFilter, prixMin, prixMax]) => {
-        return smartphones.filter(smartphone => {
-          const nomMatch = smartphone.nom.toLowerCase().includes(searchInput.toLowerCase());
-          const marqueMatch = marqueFilter ? smartphone.marque === marqueFilter : true;
-          const prixMinMatch = prixMin != null ? smartphone.prix >= prixMin : true;
-          const prixMaxMatch = prixMax != null ? smartphone.prix <= prixMax : true;
-          return nomMatch && marqueMatch && prixMinMatch && prixMaxMatch;
-        });
-      })
-    );
+    this.filteredSmartphones$ = this.createFiltersObservable();
     this.marques = this.apiService.getMarques();
+  }
+
+  private createFiltersObservable(): Observable<Smartphone[]> {
+    console.log(this.marqueFilter.value);
+    return this.searchInput.pipe(
+      switchMap(nom =>
+        this.apiService.searchSmartphones({
+          nom: nom,
+          marque: this.marqueFilter.value,
+          prixMin: this.prixMin.value?.valueOf(),
+          prixMax: this.prixMax.value?.valueOf()
+        })
+      ),
+      debounceTime(300),
+      catchError(() => of([])),
+    );
+  }
+
+  marqueChange(value: string): void {
+    this.marqueFilter.next(value);
+    this.filteredSmartphones$ = this.createFiltersObservable();
   }
 
   prixMinChange(value: number | null): void {
     this.prixMin.next(value);
+    this.filteredSmartphones$ = this.createFiltersObservable();
   }
 
   prixMaxChange(value: number | null): void {
     this.prixMax.next(value);
+    this.filteredSmartphones$ = this.createFiltersObservable();
   }
 
   trackByFn(index: number, item: string): string {
