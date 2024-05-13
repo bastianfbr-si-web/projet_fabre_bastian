@@ -23,7 +23,7 @@ COPY backend /app
 WORKDIR /app/backend
 
 # Build backend project
-RUN npm i && npm run build
+RUN npm i && npm run deploy
 
 # Copy nginx configuration
 COPY docker/nginx.conf /etc/nginx/nginx.conf
