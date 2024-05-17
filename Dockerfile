@@ -28,7 +28,7 @@ COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Copy projects
 COPY --from=builder-frontend /app/dist/tp_2/browser/ /var/www/html
-COPY --from=builder-backend /app/dist/ /app/package.json /app/package-lock.json /app/backend/
+COPY --from=builder-backend /app/dist /app/package.json /app/package-lock.json /app/backend/
 
 # Set working directory
 WORKDIR /app/backend
