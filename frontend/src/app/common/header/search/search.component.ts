@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, debounceTime, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { ApiService } from '../../../services/api.service';
 import { Smartphone } from '../../../pages/smartphones/models/smartphone';
 import { AsyncPipe, CommonModule } from '@angular/common';
@@ -40,6 +40,7 @@ export class SearchComponent {
           prixMax: this.prixMax.value?.valueOf()
         })
       ),
+      distinctUntilChanged(),
       debounceTime(300),
       catchError(() => of([])),
     );
